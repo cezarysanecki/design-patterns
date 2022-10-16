@@ -11,24 +11,21 @@ public class Coordinator {
   }
 
   public void backup() {
-    System.out.println("Making backup...");
     history.addSnapshot(memorizable.makeSnapshot());
   }
 
   public void undo() {
     if (history.isEmpty()) {
-      System.out.println("Nothing to restore..");
       return;
     }
     memorizable.restore(history.pop());
   }
 
-  public void showHistory() {
+  public String printHistory() {
     if (history.isEmpty()) {
-      System.out.println("List of mementos is empty...");
+      return "List of mementos is empty...";
     } else {
-      System.out.println("History of mementos:");
-      System.out.println(history.print());
+      return "History of mementos:\n" + history.print();
     }
   }
 }

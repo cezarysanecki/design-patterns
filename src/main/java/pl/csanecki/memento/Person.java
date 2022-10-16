@@ -10,27 +10,22 @@ public class Person implements Memorizable {
   public Person(String firstName, String lastName) {
     this.firstName = firstName;
     this.lastName = lastName;
-
-    System.out.println("Created person: " + this);
   }
 
   public void changeFirstName(String firstName) {
     this.firstName = firstName;
-    System.out.println("Change first name to: " + firstName);
   }
 
   public void changeLastName(String lastName) {
     this.lastName = lastName;
-    System.out.println("Change last name to: " + lastName);
   }
 
-  public void print() {
-    System.out.println(firstName + " " + lastName);
+  public String print() {
+    return firstName + " " + lastName;
   }
 
   @Override
   public Snapshot makeSnapshot() {
-    System.out.println("Created snapshot of: " + this);
     return new Snapshot(firstName, lastName);
   }
 
@@ -39,8 +34,6 @@ public class Person implements Memorizable {
     if (!(snapshot instanceof Snapshot personSnapshot)) {
       throw new UnsupportedOperationException("unknown type of snapshot");
     }
-    System.out.println("Restored snapshot of: " + snapshot.getName());
-
     this.firstName = personSnapshot.firstName;
     this.lastName = personSnapshot.lastName;
   }
