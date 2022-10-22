@@ -38,11 +38,6 @@ public class Person implements Memorizable {
     this.lastName = personSnapshot.lastName;
   }
 
-  @Override
-  public String toString() {
-    return firstName + " " + lastName;
-  }
-
   public static class Snapshot implements Memento {
 
     private final Instant snapshotDate;
