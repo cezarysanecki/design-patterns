@@ -38,7 +38,7 @@ public class Person implements Memorizable {
     this.lastName = personSnapshot.lastName;
   }
 
-  public static class Snapshot implements Memento {
+  private static class Snapshot implements Memento {
 
     private final Instant snapshotDate;
 
